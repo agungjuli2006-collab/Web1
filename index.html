@@ -57,55 +57,79 @@
     <!-- Konverter Sandi Morse -->
     <h4 style="color: #4a2c11;">Konverter Sandi Morse</h4>
     
-    <p style="font-weight: bold; color: #4a2c11; margin-bottom: 5px;">Masukkan Teks / Kalimat:</p>
+    <p style="font-weight: bold; color: #4a2c11; margin-bottom: 5px;">Masukkan Teks / Kalimat / Morse :</p>
     <textarea id="textInput" placeholder="Ketik kalimat di sini, contoh: SALAM PRAMUKA" style="width: 90%; max-width: 500px; height: 100px; padding: 10px; border: 2px solid #d4c5b9; border-radius: 8px; font-size: 14px; background-color: #fffefb;"></textarea>
 
     <br><br>
 
-    <p style="font-weight: bold; color: #4a2c11; margin-bottom: 5px;">Hasil Sandi Morse:</p>
+    <p style="font-weight: bold; color: #4a2c11; margin-bottom: 5px;">Hasil Sandi Morse / Kalimat / Teks :</p>
     <textarea id="morseOutput" readonly placeholder="Hasil konversi otomatis akan muncul di sini..." style="width: 90%; max-width: 500px; height: 100px; padding: 10px; border: 2px solid #4a2c11; border-radius: 8px; font-size: 15px; font-weight: bold; background-color: #f4ecdf; color: #d35400;"></textarea>
 
     <hr style="border: 1px solid #d4c5b9; max-width: 800px;">
 
     <!-- Footer / Catatan Kaki -->
     <p style="color: #665c54; font-size: 13px;">
-        ⚜️ Mari Lestarikan Sandi-Sandi Pramuka! ⚜️<br> Bin Bin punya <br>
+        ⚜️ Mari Lestarikan Sandi-Sandi Pramuka! ⚜️<br>&copy; 2026 Bin Bin punya <br>
         Dibuat dengan Semangat Kepanduan | <a href="materi.html" style="color: #d35400;">Pelajari Lebih Lanjut</a>
     </p>
 
     <!-- JavaScript Logika Konverter Morse -->
     <script>
-        const morseMap = {
-            'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',
-            'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---',
-            'K': '-.-',   'L': '.-..',  'M': '--',    'N': '-.',    'O': '---',
-            'P': '.--.',  'Q': '--.-',  'R': '.-.',   'S': '...',   'T': '-',
-            'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',  'Y': '-.--',
-            'Z': '--..',
-            '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
-            '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----',
-            ' ': '/'
-        };
+    // Map Teks ke Morse
+    const textToMorseMap = {
+        'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',
+        'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---',
+        'K': '-.-',   'L': '.-..',  'M': '--',    'N': '-.',    'O': '---',
+        'P': '.--.',  'Q': '--.-',  'R': '.-.',   'S': '...',   'T': '-',
+        'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',  'Y': '-.--',
+        'Z': '--..',
+        '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+        '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----',
+        ' ': '/'
+    };
 
-        const inputField = document.getElementById('textInput');
-        const outputField = document.getElementById('morseOutput');
+    // Map Morse ke Teks (Dibuat otomatis dari textToMorseMap)
+    const morseToTextMap = {};
+    for (let key in textToMorseMap) {
+        morseToTextMap[textToMorseMap[key]] = key;
+    }
 
-        inputField.addEventListener('input', function() {
-            const text = inputField.value.toUpperCase();
-            let morseResult = [];
+    const inputField = document.getElementById('textInput');
+    const outputField = document.getElementById('morseOutput');
 
-            for (let char of text) {
-                if (morseMap[char]) {
-                    morseResult.push(morseMap[char]);
-                } else if (char === '\n') {
-                    morseResult.push('\n');
-                } else {
-                    morseResult.push(char);
-                }
-            }
+    function translateTextToMorse(text) {
+        return text.toUpperCase().split('').map(char => {
+            if (textToMorseMap[char]) return textToMorseMap[char];
+            if (char === '\n') return '\n';
+            return char;
+        }).join(' ');
+    }
 
-            outputField.value = morseResult.join(' ');
-        });
-    </script>
+    function translateMorseToText(morse) {
+        const lines = morse.split('\n');
+        return lines.map(line => {
+            const tokens = line.trim().split(/\s+/);
+            return tokens.map(token => morseToTextMap[token] || token).join('');
+        }).join('\n');
+    }
+
+    inputField.addEventListener('input', function() {
+        const input = inputField.value.trim();
+
+        if (!input) {
+            outputField.value = '';
+            return;
+        }
+
+        // Cek apakah input dominan kode morse (hanya berisi ., -, /, spasi, atau newline)
+        const isMorse = /^[.\-\/\s\n]+$/.test(input);
+
+        if (isMorse) {
+            outputField.value = translateMorseToText(inputField.value);
+        } else {
+            outputField.value = translateTextToMorse(inputField.value);
+        }
+    });
+</script>
 </body>
 </html>
