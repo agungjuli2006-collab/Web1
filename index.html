@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>SandiPramuka.id - Beranda & Konverter</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f3efe6; color: #2c221e; margin: 20px; text-align: center;">
+
+    <!-- Header & Judul Utama -->
+    <h1 style="color: #4a2c11; margin-bottom: 5px;">⚜️ SandiPramuka.id ⚜️</h1>
+    <h6 style="color: #d35400; margin-top: 0; font-style: italic;">Media Edukasi & Konverter Sandi Pramuka Digital</h6>
+    <hr style="border: 2px solid #4a2c11; max-width: 800px;">
+
+    <!-- Menu Navigasi -->
+    <p>
+        <a href="index.html" style="background-color: #4a2c11; color: #ffffff; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold;">Beranda (Konverter)</a>
+        <a href="materi.html" style="background-color: #d35400; color: #ffffff; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold;">Kamus & Materi</a>
+        <a href="kontak.html" style="background-color: #27ae60; color: #ffffff; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold;">Buku Tamu</a>
+    </p>
+
+    <hr style="border: 1px solid #d4c5b9; max-width: 800px;">
+
+    <!-- Bagian Sejarah & Foto Tokoh -->
+    <h2 style="color: #4a2c11;">📖 Mengenal Pramuka: Sejarah & Filosofi 📖</h2>
+    <p style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
+        <b>Lord Baden-Powell</b> Robert Stephenson Smyth Baden-Powell (lebih dikenal sebagai Baden-Powell atau BP) adalah Bapak Pramuka Sedunia. Ia lahir di London pada 22 Februari 1857 dan wafat di Nyeri, Kenya pada 8 Januari 1941. Berkat pengalaman militer dan kecintaannya pada alam, ia berhasil mendirikan Gerakan Kepanduan (Scouting) yang kini diikuti oleh jutaan anak muda di seluruh dunia.
+    <br>
+    <p style="max-width: 700px; margin: 0 auto; line-height: 1.6; background-color: #fff8ef; padding: 10px; border-left: 4px solid #d35400;">
+        <b>Gerakan Pramuka</b> Gerakan Pramuka di Indonesia berperan besar dalam membentuk karakter pemuda yang mandiri, disiplin, dan cinta tanah air. Sebagai wadah pendidikan nonformal, gerakan ini melatih generasi muda melalui kegiatan luar ruangan yang menyenangkan dan sarat akan nilai-nilai pembentukan kepribadian yang tangguh. <b>Tri Satya </b>  Tiga janji utama yang menjadi komitmen moral setiap anggota terhadap Tuhan, Negara Kesatuan Republik Indonesia (NKRI), pancasila, dan sesama manusia. </b> dan <b>Dasa Darma</b>  Tiga janji utama yang menjadi komitmen moral setiap anggota terhadap Tuhan, Negara Kesatuan Republik Indonesia (NKRI), pancasila, dan sesama manusia. </p>
+    </p>
+    <br>
+    <p style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
+        Sandi dan isyarat seperti Morse dan Semaphore merupakan sarana komunikasi penting dalam kepanduan untuk melatih ketangkasan berpikir dan koordinasi kelompok.
+    </p>
+
+    <br>
+
+    <!-- Gambar Baden Powell & Kegiatan -->
+    <p>
+        <img src="baden.jpg" alt="Lord Baden-Powell" style="width: 130px; height: 150px; object-fit: cover; border-radius: 8px; border: 3px solid #4a2c11;">
+        <img src="pramuka.jpeg" alt="Semangat Kebersamaan Pramuka" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 3px solid #d35400;">
+    </p>
+    <h6>Baden-Powell &amp; Kegiatan Pramuka</h6>
+
+    <hr style="border: 1px solid #d4c5b9; max-width: 800px;">
+
+    <!-- Banner Informasi -->
+    <h3 style="color: #4a2c11;">Selamat Datang di SandiPramuka.id!</h3>
+    <p style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
+        Situs ini membantu Anda mempelajari dan mengonversi teks biasa menjadi <b>Sandi Morse</b> secara instan.<br>
+        Cukup ketik teks di kolom bawah, dan hasilnya akan otomatis muncul.
+    </p>
+
+    <br>
+
+    <!-- Konverter Sandi Morse -->
+    <h4 style="color: #4a2c11;">Konverter Sandi Morse</h4>
+    
+    <p style="font-weight: bold; color: #4a2c11; margin-bottom: 5px;">Masukkan Teks / Kalimat:</p>
+    <textarea id="textInput" placeholder="Ketik kalimat di sini, contoh: SALAM PRAMUKA" style="width: 90%; max-width: 500px; height: 100px; padding: 10px; border: 2px solid #d4c5b9; border-radius: 8px; font-size: 14px; background-color: #fffefb;"></textarea>
+
+    <br><br>
+
+    <p style="font-weight: bold; color: #4a2c11; margin-bottom: 5px;">Hasil Sandi Morse:</p>
+    <textarea id="morseOutput" readonly placeholder="Hasil konversi otomatis akan muncul di sini..." style="width: 90%; max-width: 500px; height: 100px; padding: 10px; border: 2px solid #4a2c11; border-radius: 8px; font-size: 15px; font-weight: bold; background-color: #f4ecdf; color: #d35400;"></textarea>
+
+    <hr style="border: 1px solid #d4c5b9; max-width: 800px;">
+
+    <!-- Footer / Catatan Kaki -->
+    <p style="color: #665c54; font-size: 13px;">
+        ⚜️ Mari Lestarikan Sandi-Sandi Pramuka! ⚜️<br> Bin Bin punya <br>
+        Dibuat dengan Semangat Kepanduan | <a href="materi.html" style="color: #d35400;">Pelajari Lebih Lanjut</a>
+    </p>
+
+    <!-- JavaScript Logika Konverter Morse -->
+    <script>
+        const morseMap = {
+            'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',
+            'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---',
+            'K': '-.-',   'L': '.-..',  'M': '--',    'N': '-.',    'O': '---',
+            'P': '.--.',  'Q': '--.-',  'R': '.-.',   'S': '...',   'T': '-',
+            'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',  'Y': '-.--',
+            'Z': '--..',
+            '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+            '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----',
+            ' ': '/'
+        };
+
+        const inputField = document.getElementById('textInput');
+        const outputField = document.getElementById('morseOutput');
+
+        inputField.addEventListener('input', function() {
+            const text = inputField.value.toUpperCase();
+            let morseResult = [];
+
+            for (let char of text) {
+                if (morseMap[char]) {
+                    morseResult.push(morseMap[char]);
+                } else if (char === '\n') {
+                    morseResult.push('\n');
+                } else {
+                    morseResult.push(char);
+                }
+            }
+
+            outputField.value = morseResult.join(' ');
+        });
+    </script>
+</body>
+</html>
